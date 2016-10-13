@@ -28,3 +28,7 @@
                 .setType(AnFQNumEditText.SINGULAR)
                 .setLineColor("#3F51B5")//设置横线颜色
                 .show();
+                
+> #### [博客地址](http://www.jianshu.com/p/383ba123c201)
+
+> [English](https://github.com/FTandJYQ/AnFQNumEditText/blob/master/README-En.md)|[中文](https://github.com/FTandJYQ/AnFQNumEditText/blob/master/README.md)
