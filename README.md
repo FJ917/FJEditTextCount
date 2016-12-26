@@ -11,23 +11,35 @@
 
 > ### 用法：
 
-1. xml添加
+1.引用
 
-        <fj.edittextcount.lib.FJEditTextCount
-            android:id="@+id/fjEdit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+	dependencies {
+	    compile 'com.github.FJ917:FJEditTextCount:v1.0.1'
+	}
 
-2. java设置
+2.xml添加
 
-        fjEdit = (FJEditTextCount) findViewById(R.id.fjEdit);
-        fjEdit.setEtHint("内容")//设置提示文字
-                .setEtMinHeight(200)//设置最小高度，单位px
-                .setLength(50)//设置总字数
-                //TextView显示类型(SINGULAR单数类型)(PERCENTAGE百分比类型)
-                .setType(FJEditTextCount.SINGULAR)
-                .setLineColor("#3F51B5")//设置横线颜色
-                .show();
+    <fj.edittextcount.lib.FJEditTextCount
+        android:id="@+id/fjEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+        
+2.java设置
+
+    fjEdit = (FJEditTextCount) findViewById(R.id.fjEdit);
+    fjEdit.setEtHint("内容")//设置提示文字
+            .setEtMinHeight(200)//设置最小高度，单位px
+            .setLength(50)//设置总字数
+            //TextView显示类型(SINGULAR单数类型)(PERCENTAGE百分比类型)
+            .setType(FJEditTextCount.SINGULAR)
+            .setLineColor("#3F51B5")//设置横线颜色
+            .show();
                 
 > #### [博客地址](http://www.jianshu.com/p/383ba123c201)
 
