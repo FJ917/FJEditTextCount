@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AnFQNumEditText.iml" filepath="$PROJECT_DIR$/AnFQNumEditText.iml" />
-      <module fileurl="file://$PROJECT_DIR$/AnFQNumEditTextLib/AnFQNumEditTextLib.iml" filepath="$PROJECT_DIR$/AnFQNumEditTextLib/AnFQNumEditTextLib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FJEditTextCount.iml" filepath="$PROJECT_DIR$/FJEditTextCount.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FJEditTextCountLib/FJEditTextCountLib.iml" filepath="$PROJECT_DIR$/FJEditTextCountLib/FJEditTextCountLib.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
