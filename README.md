@@ -9,13 +9,17 @@
 |:-------------:|:-------------:|
 | ![百分比类型.gif](http://upload-images.jianshu.io/upload_images/2071764-b45df6bf1d00205e.gif)      | ![单数类型.gif](http://upload-images.jianshu.io/upload_images/2071764-7be37be47251b7d4.gif) |
 
-> #### 更新1.0.2版本
+> #### v1.0.2版本
 
 新增获取输入内容的方法：
 
     fjEdit.getText();
 
-> #### 以下1.0.1版本
+> #### v1.0.1版本
+
+初次提交，实现基本功能~
+
+---
 
 > #### 用法：
 
@@ -28,7 +32,8 @@
 		}
 	}
 	dependencies {
-	    compile 'com.github.FJ917:FJEditTextCount:v1.0.1'
+	    compile 'com.github.FJ917:FJEditTextCount:版本号'
+	    //compile 'com.github.FJ917:FJEditTextCount:v1.0.1'
 	}
 
 2.xml添加
