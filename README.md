@@ -9,7 +9,15 @@
 |:-------------:|:-------------:|
 | ![百分比类型.gif](http://upload-images.jianshu.io/upload_images/2071764-b45df6bf1d00205e.gif)      | ![单数类型.gif](http://upload-images.jianshu.io/upload_images/2071764-7be37be47251b7d4.gif) |
 
-> ### 用法：
+> #### 更新1.0.2版本
+
+新增获取输入内容的方法：
+
+    fjEdit.getText();
+
+> #### 以下1.0.1版本
+
+> #### 用法：
 
 1.引用
 
@@ -42,5 +50,3 @@
             .show();
                 
 > #### [博客地址](http://www.jianshu.com/p/383ba123c201)
-
-> [English](https://github.com/FTandJYQ/AnFQNumEditText/blob/master/README-En.md)|[中文](https://github.com/FTandJYQ/AnFQNumEditText/blob/master/README.md)

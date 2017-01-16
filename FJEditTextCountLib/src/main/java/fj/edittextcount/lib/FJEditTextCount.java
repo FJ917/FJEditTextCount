@@ -117,6 +117,14 @@ public class FJEditTextCount  extends RelativeLayout {
         return this;
     }
 
+    /**
+     * 获取输入内容
+     * @return 内容
+     */
+    public String getText(){
+        return etContent.getText().toString();
+    }
+
     private TextWatcher mTextWatcher = new TextWatcher() {
         private int editStart;
         private int editEnd;

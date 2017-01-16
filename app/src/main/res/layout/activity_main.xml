@@ -10,4 +10,16 @@
         android:id="@+id/fjEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btnGetText"
+        android:layout_below="@+id/fjEdit"
+        android:text="获取输入内容"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/tvText"
+        android:layout_below="@+id/btnGetText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 </RelativeLayout>
