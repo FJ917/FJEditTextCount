@@ -51,9 +51,11 @@ dependencies {
 |getText()|java方法，获取输入的文字|
 |setText|java方法，设置默认文字|
 |show()|v1.0.3(含)版本后不需要设置|
+
 ---
 
 ##### v1.0.3版本
+
 这个版本有较大的改动，一些以往在java中设置的参数，移到了xml中进行设置，但是保留了java中设置的方法，但是不建议使用！
 
 **变动的参数**
@@ -82,6 +84,7 @@ dependencies {
 
 
 ###### xml示例
+
 ```
 <fj.edittextcount.lib.FJEditTextCount
         android:id="@+id/fjEdit"
@@ -102,6 +105,7 @@ dependencies {
 ---
 
 ##### v1.0.2版本
+
 使用方法和v1.0.1一致
 新增获取输入内容的方法：` fjEdit.getText();`
 
@@ -110,6 +114,7 @@ dependencies {
 ##### v1.0.1版本
 
 初次提交，实现基本功能~
+
 ###### xml
 
 ```
@@ -144,6 +149,7 @@ etContent = (EditText) findViewById(R.id.etContent);
 tvNum = (TextView) findViewById(R.id.tvNum);
 vLine = findViewById(R.id.vLine);
 ```
+
 然后提供一些设置值的方法，如右下角的类型（这里有两种类型，即：单数类型和百分比类型）、最大字符的长度、EditText的Hint、横线的颜色。
 
 设置`EditText`的监听TextWatcher（这里是参考了网上的一些代码，具体链接找不到了）
