@@ -1,7 +1,8 @@
+> ### 栗子——自定义EditText实现右下角计数控件
+
+---
 
 ![栗子配图.png](http://upload-images.jianshu.io/upload_images/2071764-8d148e73b77178de.png)
-
-
 
 ---
 
