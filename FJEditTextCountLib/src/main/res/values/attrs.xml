@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="FJEditTextCount">
+        <!--设置默认文字-->
+        <attr name="etText" format="string" />
+        <!--设置提示文字-->
+        <attr name="etHint" format="string" />
+        <!--设置提示文字颜色-->
+        <attr name="etHintColor" format="color" />
+        <!--设置最小高度-->
+        <attr name="etMinHeight" format="dimension" />
+        <!--设置最大长度-->
+        <attr name="etMaxLength" format="integer" />
+        <!--设置横线颜色-->
+        <attr name="etLineColor" format="color" />
+        <!--设置输入文字大小-->
+        <attr name="etTextSize" format="dimension" />
+        <!--设置输入文字颜色-->
+        <attr name="etTextColor" format="color" />
+        <!--设置提示统计文字大小-->
+        <attr name="etPromptTextSize" format="dimension" />
+        <!--设置提示统计文字颜色-->
+        <attr name="etPromptTextColor" format="color" />
+        <!--设置提示统计显示类型-->
+        <attr name="etType">
+            <!--单数类型-->
+            <enum name="singular" value="0" />
+            <!--百分比类型-->
+            <enum name="percentage" value="1" />
+        </attr>
+    </declare-styleable>
+</resources>
