@@ -1,11 +1,13 @@
 package fj.edittextcount.lib;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
@@ -24,8 +26,6 @@ import android.widget.TextView;
  * ┗━━━┻━━━━━━━━━━━━━━━━━━━━━━━━┛
  */
 
-
-// JUMP
 public class FJEditTextCount  extends RelativeLayout {
 
     //类型1(单数类型)：TextView显示总字数，然后根据输入递减.例：100，99，98
@@ -37,6 +37,11 @@ public class FJEditTextCount  extends RelativeLayout {
     private View vLine;//底部横线
     private String TYPES = SINGULAR;//类型
     private int MaxNum = 100;//最大字符
+    private String hint = "请输入内容";//提示文字
+    private int MinHeight = 100;//最小高度
+    private int LineColor = Color.BLACK;//横线颜色
+    private int TextColor = Color.BLACK;//输入文字颜色
+    private String text = "";//默认文字
 
     public FJEditTextCount(Context context) {
         this(context, null);
@@ -48,12 +53,68 @@ public class FJEditTextCount  extends RelativeLayout {
         etContent = (EditText) findViewById(R.id.etContent);
         tvNum = (TextView) findViewById(R.id.tvNum);
         vLine = findViewById(R.id.vLine);
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.FJEditTextCount);
+        if (typedArray != null) {
+            //默认文字
+            text = typedArray.getString(R.styleable.FJEditTextCount_etText);
+            etContent.setText(text);
+            etContent.setSelection(etContent.getText().length());
+            //提示文字
+            hint = typedArray.getString(R.styleable.FJEditTextCount_etHint);
+            etContent.setHint(hint);
+            //提示文字颜色
+            etContent.setHintTextColor(typedArray.getColor(R.styleable.FJEditTextCount_etHintColor, Color.rgb(155,155,155)));
+            //最小高度
+            etContent.setMinHeight(px2dip(context,
+                    typedArray.getDimensionPixelOffset(R.styleable.FJEditTextCount_etMinHeight,200)));
+            //最大字符
+            MaxNum = typedArray.getInt(R.styleable.FJEditTextCount_etMaxLength, 100);
+            //横线颜色
+            LineColor = typedArray.getColor(R.styleable.FJEditTextCount_etLineColor, Color.BLACK);
+            vLine.setBackgroundColor(LineColor);
+            //输入文字大小
+            etContent.setTextSize(px2sp(context,
+                    typedArray.getDimensionPixelOffset(R.styleable.FJEditTextCount_etTextSize,16)));
+            //输入文字颜色
+            TextColor = typedArray.getColor(R.styleable.FJEditTextCount_etTextColor, Color.BLACK);
+            etContent.setTextColor(TextColor);
+            //设置提示统计文字大小
+            tvNum.setTextSize(px2sp(context,
+                    typedArray.getDimensionPixelSize(R.styleable.FJEditTextCount_etPromptTextSize,12)));
+            //设置提示统计文字颜色
+            tvNum.setTextColor(typedArray.getColor(R.styleable.FJEditTextCount_etPromptTextColor, Color.BLACK));
+            //设置提示统计显示类型
+            int t = typedArray.getInt(R.styleable.FJEditTextCount_etType,0);
+            if(t == 0)TYPES = SINGULAR;
+            else TYPES = PERCENTAGE;
+            if(TYPES.equals(SINGULAR)){//类型1
+                tvNum.setText(String.valueOf(MaxNum));
+            }else if(TYPES.equals(PERCENTAGE)){//类型2
+                tvNum.setText(0+"/"+MaxNum);
+            }
+            typedArray.recycle();
+        }
+        //设置长度
+        etContent.setFilters(new InputFilter[]{new InputFilter.LengthFilter(MaxNum)});
+        //监听输入
+        etContent.addTextChangedListener(mTextWatcher);
+        setLeftCount();
+    }
+
+    private int px2sp(Context context, float pxValue) {
+        final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
+        return (int) (pxValue / fontScale + 0.5f);
+    }
+    private static int px2dip(Context context, float pxValue) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (pxValue / scale + 0.5f);
     }
 
     /**
      * 设置显示
      * @return
      */
+    @Deprecated
     public FJEditTextCount show(){
         if(TYPES.equals(SINGULAR)){//类型1
             tvNum.setText(String.valueOf(MaxNum));
@@ -72,16 +133,19 @@ public class FJEditTextCount  extends RelativeLayout {
      * @param color --颜色值
      * @return
      */
+    @Deprecated
     public FJEditTextCount setLineColor(String color){
         vLine.setBackgroundColor(Color.parseColor(color));
         return this;
     }
 
     /**
+     *
      * 设置类型
      * @param type --类型
      * @return
      */
+    @Deprecated
     public FJEditTextCount setType(String type){
         TYPES = type;
         return this;
@@ -92,6 +156,7 @@ public class FJEditTextCount  extends RelativeLayout {
      * @param num --字数
      * @return
      */
+    @Deprecated
     public FJEditTextCount setLength(int num){
         this.MaxNum = num;
         return this;
@@ -102,6 +167,7 @@ public class FJEditTextCount  extends RelativeLayout {
      * @param str --设置内容
      * @return
      */
+    @Deprecated
     public FJEditTextCount setEtHint(String str){
         etContent.setHint(str);
         return this;
@@ -112,6 +178,7 @@ public class FJEditTextCount  extends RelativeLayout {
      * @param px --最小高度(单位px)
      * @return
      */
+    @Deprecated
     public FJEditTextCount setEtMinHeight(int px){
         etContent.setMinHeight(px);
         return this;
@@ -123,6 +190,15 @@ public class FJEditTextCount  extends RelativeLayout {
      */
     public String getText(){
         return etContent.getText().toString();
+    }
+
+    /**
+     * 设置默认内容
+     * @param str --内容
+     */
+    public void setText(String str){
+        etContent.setText(str);
+        etContent.setSelection(etContent.getText().length());
     }
 
     private TextWatcher mTextWatcher = new TextWatcher() {

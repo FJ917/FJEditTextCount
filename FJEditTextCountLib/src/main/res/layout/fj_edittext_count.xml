@@ -12,6 +12,7 @@
         android:background="@null"
         android:gravity="top"
         android:textColor="#000000"
+        android:textSize="16sp"
         android:textCursorDrawable="@null"
         android:hint="请输入内容"
         android:maxLength="100"
@@ -27,6 +28,7 @@
         android:layout_alignBottom="@+id/etContent"
         android:gravity="right"
         android:paddingRight="10dp"
+        android:textSize="12sp"
         android:text="100" />
 
     <View
