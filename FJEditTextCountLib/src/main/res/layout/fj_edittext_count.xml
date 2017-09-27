@@ -21,6 +21,13 @@
         android:scrollbars="vertical"
         android:singleLine="false" />
 
+    <View
+        android:id="@+id/vLineUp"
+        android:background="#ff00ff"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
     <TextView
         android:id="@+id/tvNum"
         android:layout_width="match_parent"
@@ -32,7 +39,7 @@
         android:text="100" />
 
     <View
-        android:id="@+id/vLine"
+        android:id="@+id/vLineDn"
         android:background="#ff00ff"
         android:layout_width="match_parent"
         android:layout_height="1dp"/>

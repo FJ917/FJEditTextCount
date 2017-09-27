@@ -34,7 +34,8 @@ public class FJEditTextCount  extends RelativeLayout {
     public static final String PERCENTAGE = "Percentage";//类型2(百分比类型)
     private EditText etContent;//文本框
     private TextView tvNum;//字数显示TextView
-    private View vLine;//底部横线
+    private View vLineUp;//底部横线
+    private View vLineDn;//底部横线
     private String TYPES = SINGULAR;//类型
     private int MaxNum = 100;//最大字符
     private String hint = "请输入内容";//提示文字
@@ -52,7 +53,8 @@ public class FJEditTextCount  extends RelativeLayout {
         LayoutInflater.from(context).inflate(R.layout.fj_edittext_count, this, true);
         etContent = (EditText) findViewById(R.id.etContent);
         tvNum = (TextView) findViewById(R.id.tvNum);
-        vLine = findViewById(R.id.vLine);
+        vLineUp = findViewById(R.id.vLineUp);
+        vLineDn = findViewById(R.id.vLineDn);
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.FJEditTextCount);
         if (typedArray != null) {
             //默认文字
@@ -71,7 +73,8 @@ public class FJEditTextCount  extends RelativeLayout {
             MaxNum = typedArray.getInt(R.styleable.FJEditTextCount_etMaxLength, 100);
             //横线颜色
             LineColor = typedArray.getColor(R.styleable.FJEditTextCount_etLineColor, Color.BLACK);
-            vLine.setBackgroundColor(LineColor);
+            vLineDn.setBackgroundColor(LineColor);
+            vLineUp.setBackgroundColor(LineColor);
             //输入文字大小
             etContent.setTextSize(px2sp(context,
                     typedArray.getDimensionPixelOffset(R.styleable.FJEditTextCount_etTextSize,16)));
@@ -91,6 +94,15 @@ public class FJEditTextCount  extends RelativeLayout {
                 tvNum.setText(String.valueOf(MaxNum));
             }else if(TYPES.equals(PERCENTAGE)){//类型2
                 tvNum.setText(0+"/"+MaxNum);
+            }
+            //设置提示位置
+            int promptPosition = typedArray.getInt(R.styleable.FJEditTextCount_etPromptPosition,0);
+            if(promptPosition == 0){//上方
+                vLineDn.setVisibility(View.VISIBLE);
+                vLineUp.setVisibility(View.GONE);
+            }else{//下方
+                vLineUp.setVisibility(View.VISIBLE);
+                vLineDn.setVisibility(View.GONE);
             }
             typedArray.recycle();
         }
@@ -135,7 +147,8 @@ public class FJEditTextCount  extends RelativeLayout {
      */
     @Deprecated
     public FJEditTextCount setLineColor(String color){
-        vLine.setBackgroundColor(Color.parseColor(color));
+        vLineUp.setBackgroundColor(Color.parseColor(color));
+        vLineDn.setBackgroundColor(Color.parseColor(color));
         return this;
     }
 

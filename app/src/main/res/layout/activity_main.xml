@@ -20,6 +20,7 @@
         app:etText="默认输入的文字"
         app:etTextColor="@color/colorAccent"
         app:etTextSize="20sp"
+        app:etPromptPosition="promptDn"
         app:etType="percentage" />
 
     <TextView

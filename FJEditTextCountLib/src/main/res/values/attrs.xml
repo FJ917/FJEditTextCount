@@ -28,5 +28,12 @@
             <!--百分比类型-->
             <enum name="percentage" value="1" />
         </attr>
+        <!--设置提示位置-->
+        <attr name="etPromptPosition">
+            <!--上方-->
+            <enum name="promptUp" value="0" />
+            <!--下方-->
+            <enum name="promptDn" value="1" />
+        </attr>
     </declare-styleable>
 </resources>
