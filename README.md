@@ -52,6 +52,13 @@ dependencies {
 |getText()|java方法，获取输入的文字|
 |setText|java方法，设置默认文字|
 |show()|v1.0.3(含)版本后不需要设置|
+|etPromptPosition|xml参数，设置提示统计显示类型位置（promptUp上方；下方promptDn）|
+
+---
+
+##### v1.0.4版本
+
+新增设置提示统计显示类型位置在横线上方或者横线下方
 
 ---
 
